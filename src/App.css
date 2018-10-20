@@ -23,8 +23,18 @@
   margin-top: 40px;
 }
 
-h1 {
-  text-align: center;
-  font-size: 30px;
+.history--section {
+  padding: 20px 0px;
+  margin-top: 40px;
 }
 
+
+h1 {
+  text-align: center;
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 35px;
+  color:#0667D0;
+}

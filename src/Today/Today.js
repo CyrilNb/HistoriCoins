@@ -23,7 +23,6 @@ class Today extends Component{
                 //We set the latest price provided by CryptoCompare.
                 this.setState({btcpriceUSD: response.data.BTC.USD});
                 this.setState({btcpriceEUR: response.data.BTC.EUR});
-                console.log(this.state)
                 this.setState({icxpriceUSD: response.data.ICX.USD});
                 this.setState({icxpriceEUR: response.data.ICX.EUR});
                 this.setState({nanopriceUSD: response.data.NANO.USD});
@@ -43,14 +42,20 @@ class Today extends Component{
                 <div className="columns today--section__box">
                     <div className="column btc--section">
                         <h5>{this.state.btcpriceEUR} €</h5>
+                        <h6>${this.state.btcpriceUSD}</h6>
+                        <br></br>
                         <p>1 BTC</p>
                     </div>
                     <div className="column icx--section">
                         <h5>{this.state.icxpriceEUR} €</h5>
+                        <h6>${this.state.icxpriceUSD}</h6>
+                        <br></br>
                         <p>1 ICX</p>
                     </div>
                     <div className="column nano--section">
                         <h5>{this.state.nanopriceEUR} €</h5>
+                        <h6>${this.state.nanopriceUSD}</h6>
+                        <br></br>
                         <p>1 NANO</p>
                     </div>
                 </div>
