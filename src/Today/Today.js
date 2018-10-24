@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Today.css'
 import axios from 'axios'
+import Pusher from 'pusher-js'
 
 class Today extends Component{
     // Adds a class constructor that assigns the initial state values:
@@ -18,6 +19,14 @@ class Today extends Component{
 
     //This is called when an instance of a component is being created and inserted into the DOM.
     componentWillMount() {
+       // establish a connection to Pusher
+        this.pusher = new Pusher('35c3a9f0ce12cb308b8f', {
+            cluster: 'eu',
+            encrypted: true
+        });
+        // Subscribe to the 'coin-prices' channel
+        this.prices = this.pusher.subscribe('coin-prices');
+
         axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ICX,NANO&tsyms=USD,EUR')
             .then(response => {
                 //We set the latest price provided by CryptoCompare.
@@ -62,6 +71,39 @@ class Today extends Component{
             </div>
         )
     }
+
+    componentDidMount () {
+        console.log('component did mount')
+        setInterval(() => {
+            axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ICX,NANO&tsyms=EUR')
+                .then(response => {
+                    this.sendPricePusher(response.data)
+                    console.log(response.data)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        }, 10000) //query the API every 10 secs and sends the data to Pusher
+        // We bind to the 'prices' event and use the data in it (price information) to update the state values, thus, realtime changes 
+        this.prices.bind('prices', price => {
+            this.setState({ btcpriceEUR: price.prices.BTC.EUR });
+            this.setState({ icxpriceEUR: price.prices.ICX.EUR});
+            this.setState({ nanopriceEUR: price.prices.NANO.EUR });
+        }, this);
+     }
+
+    sendPricePusher (data) {
+        axios.post('/prices/new', {
+            prices: data
+        })
+          .then(response => {
+              console.log(response)
+          })
+          .catch(error => {
+              console.log(error)
+          })
+     }
+
 }
 
 

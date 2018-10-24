@@ -84,7 +84,7 @@ import React, { Component } from 'react';
     render() {
         //cause NANO was previously named 'XRB' less than one year ago we have to display XRB price instead, depending of the date.
         let valueOfNano; 
-        if(this.state.oneyearprice.nano == 0){
+        if(this.state.oneyearprice.nano === 0){
             valueOfNano = this.state.oneyearprice.xrb;
         }else{
             valueOfNano = this.state.oneyearprice.nano;
