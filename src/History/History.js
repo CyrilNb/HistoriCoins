@@ -52,6 +52,7 @@ import React, { Component } from 'react';
                     nano: nano.data.NANO.EUR,
                 }
                 // Set the state of todayprice to the content of the object f
+                localStorage.setItem('todayprice',JSON.stringify(f));
                 this.setState({ todayprice: f });
             }));
     }
@@ -72,6 +73,7 @@ import React, { Component } from 'react';
                 }
                 // Set the state of one year ago to the content of the object f
                 this.setState({ oneyearprice: f });
+                localStorage.setItem('oneyearprice',JSON.stringify(f));
             }));
     }
 
@@ -79,6 +81,13 @@ import React, { Component } from 'react';
     componentWillMount() {
         this.getTodayPrice();
         this.getOneYearPrice();
+    }
+
+    componentDidMount () {
+        if (!navigator.onLine) {
+            this.setState({ todayprice: JSON.parse(localStorage.getItem('todayprice')) });
+            this.setState({ oneyearprice: JSON.parse(localStorage.getItem('oneyearprice')) });
+        }
     }
 
     render() {
