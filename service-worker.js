@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/HistoriCoins/precache-manifest.ed6cc9a3875d7f574d284818788d7ee6.js"
+  "/Historicoins/precache-manifest.33d2957d9e8f6f4545cf4b96ff38a327.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/HistoriCoins/index.html", {
+workbox.routing.registerNavigationRoute("/Historicoins/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
