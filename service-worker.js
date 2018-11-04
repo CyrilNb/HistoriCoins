@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/HistoriCoins/precache-manifest.ed6cc9a3875d7f574d284818788d7ee6.js"
+  "/HistoriCoins/precache-manifest.01d3f70a2e2c45f6ce6f53728264736b.js"
 );
 
 workbox.clientsClaim();

@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/HistoriCoins/static/js/runtime~main.e1b4c29d.js"
   },
   {
-    "revision": "018e9d46fe316265047e",
-    "url": "/HistoriCoins/static/js/main.018e9d46.chunk.js"
+    "revision": "a917a6d4f1d695c6efca",
+    "url": "/HistoriCoins/static/js/main.a917a6d4.chunk.js"
   },
   {
     "revision": "47d1bb59e99047489959",
     "url": "/HistoriCoins/static/js/1.47d1bb59.chunk.js"
   },
   {
-    "revision": "018e9d46fe316265047e",
+    "revision": "a917a6d4f1d695c6efca",
     "url": "/HistoriCoins/static/css/main.8b074a32.chunk.css"
   },
   {
-    "revision": "cada5485d5db110714027e6f3bf5d592",
+    "revision": "2036bf44bd654bbc4f058ade5a8a267b",
     "url": "/HistoriCoins/index.html"
   }
 ];
