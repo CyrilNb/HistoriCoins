@@ -1,13 +1,13 @@
 {
-  "main.css": "/Historicoins/static/css/main.8b074a32.chunk.css",
-  "main.js": "/Historicoins/static/js/main.aa4e95f8.chunk.js",
-  "main.js.map": "/Historicoins/static/js/main.aa4e95f8.chunk.js.map",
-  "static/js/1.47d1bb59.chunk.js": "/Historicoins/static/js/1.47d1bb59.chunk.js",
-  "static/js/1.47d1bb59.chunk.js.map": "/Historicoins/static/js/1.47d1bb59.chunk.js.map",
-  "runtime~main.js": "/Historicoins/static/js/runtime~main.39819709.js",
-  "runtime~main.js.map": "/Historicoins/static/js/runtime~main.39819709.js.map",
-  "static/css/main.8b074a32.chunk.css.map": "/Historicoins/static/css/main.8b074a32.chunk.css.map",
-  "index.html": "/Historicoins/index.html",
-  "precache-manifest.33d2957d9e8f6f4545cf4b96ff38a327.js": "/Historicoins/precache-manifest.33d2957d9e8f6f4545cf4b96ff38a327.js",
-  "service-worker.js": "/Historicoins/service-worker.js"
+  "main.css": "/HistoriCoins/static/css/main.8b074a32.chunk.css",
+  "main.js": "/HistoriCoins/static/js/main.018e9d46.chunk.js",
+  "main.js.map": "/HistoriCoins/static/js/main.018e9d46.chunk.js.map",
+  "static/js/1.47d1bb59.chunk.js": "/HistoriCoins/static/js/1.47d1bb59.chunk.js",
+  "static/js/1.47d1bb59.chunk.js.map": "/HistoriCoins/static/js/1.47d1bb59.chunk.js.map",
+  "runtime~main.js": "/HistoriCoins/static/js/runtime~main.e1b4c29d.js",
+  "runtime~main.js.map": "/HistoriCoins/static/js/runtime~main.e1b4c29d.js.map",
+  "static/css/main.8b074a32.chunk.css.map": "/HistoriCoins/static/css/main.8b074a32.chunk.css.map",
+  "index.html": "/HistoriCoins/index.html",
+  "precache-manifest.ed6cc9a3875d7f574d284818788d7ee6.js": "/HistoriCoins/precache-manifest.ed6cc9a3875d7f574d284818788d7ee6.js",
+  "service-worker.js": "/HistoriCoins/service-worker.js"
 }
