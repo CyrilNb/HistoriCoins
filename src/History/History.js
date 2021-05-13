@@ -11,9 +11,8 @@ import React, { Component } from 'react';
                 oneyearprice: {}
             }
             this.getBTCPrices = this.getBTCPrices.bind(this);
-            this.getICXPrices = this.getICXPrices.bind(this);
-            this.getNANOPrices = this.getNANOPrices.bind(this);
-            this.getXRBPrices = this.getXRBPrices.bind(this);
+            this.getETHPrices = this.getETHPrices.bind(this);
+            this.getDOGEPrices = this.getDOGEPrices.bind(this);
         }
 
  
@@ -23,19 +22,13 @@ import React, { Component } from 'react';
     }
 
     // This function gets the ICX price for a specific timestamp/date. The date is passed in as an argument
-    getICXPrices (date) {
-        return axios.get('https://min-api.cryptocompare.com/data/pricehistorical?fsym=ICX&tsyms=EUR&ts=' + date);
+    getETHPrices (date) {
+        return axios.get('https://min-api.cryptocompare.com/data/pricehistorical?fsym=ETH&tsyms=EUR&ts=' + date);
     }
-
 
     // This function gets the NANO price for a specific timestamp/date. The date is passed in as an argument
-    getNANOPrices (date) {
-        return axios.get('https://min-api.cryptocompare.com/data/pricehistorical?fsym=NANO&tsyms=EUR&ts=' + date);
-    }
-
-    // This function gets the XRB (old NANO) price for a specific timestamp/date. The date is passed in as an argument
-    getXRBPrices (date) {
-        return axios.get('https://min-api.cryptocompare.com/data/pricehistorical?fsym=XRB&tsyms=EUR&ts=' + date);
+    getDOGEPrices (date) {
+        return axios.get('https://min-api.cryptocompare.com/data/pricehistorical?fsym=DOGE&tsyms=EUR&ts=' + date);
     }
 
     // This function gets the prices for the current date.
@@ -43,13 +36,13 @@ import React, { Component } from 'react';
         // Get today's date in timestamp
         let today = moment().unix();
         // axios.all is used to make concurrent API requests. These requests were the functions we first created and they accept an argument of the date required.
-        axios.all([this.getICXPrices(today), this.getBTCPrices(today), this.getNANOPrices(today)])
-            .then(axios.spread((icx, btc, nano) => {
+        axios.all([this.getETHPrices(today), this.getBTCPrices(today), this.getDOGEPrices(today)])
+            .then(axios.spread((eth, btc, doge) => {
                 let f = {
                     date: moment.unix(today).format("MMMM Do YYYY"),
-                    icx: icx.data.ICX.EUR,
+                    eth: eth.data.ETH.EUR,
                     btc: btc.data.BTC.EUR,
-                    nano: nano.data.NANO.EUR,
+                    doge: doge.data.DOGE.EUR,
                 }
                 // Set the state of todayprice to the content of the object f
                 localStorage.setItem('todayprice',JSON.stringify(f));
@@ -62,14 +55,13 @@ import React, { Component } from 'react';
         // Get the date of year ago in timestamp
         let date = moment().subtract(365,'days').unix();
         // axios.all is used to make concurrent API requests. These requests were the functions we first created and they accept an argument of the date required.
-        axios.all([this.getICXPrices(date), this.getBTCPrices(date), this.getNANOPrices(date), this.getXRBPrices(date)])
-            .then(axios.spread((icx, btc, nano, xrb) => {
+        axios.all([this.getETHPrices(date), this.getBTCPrices(date), this.getDOGEPrices(date)])
+            .then(axios.spread((eth, btc, doge) => {
                 let f = {
                     date: moment.unix(date).format("MMMM Do YYYY"),
-                    icx: icx.data.ICX.EUR,
+                    eth: eth.data.ETH.EUR,
                     btc: btc.data.BTC.EUR,
-                    nano: nano.data.NANO.EUR,
-                    xrb: xrb.data.XRB.EUR
+                    doge: doge.data.DOGE.EUR,
                 }
                 // Set the state of one year ago to the content of the object f
                 this.setState({ oneyearprice: f });
@@ -91,13 +83,6 @@ import React, { Component } from 'react';
     }
 
     render() {
-        //cause NANO was previously named 'XRB' less than one year ago we have to display XRB price instead, depending of the date.
-        let valueOfNano; 
-        if(this.state.oneyearprice.nano === 0){
-            valueOfNano = this.state.oneyearprice.xrb;
-        }else{
-            valueOfNano = this.state.oneyearprice.nano;
-        }
         return (
             <div className="history--section container">
                 <h2>One year ago - {this.state.oneyearprice.date}</h2>
@@ -108,10 +93,10 @@ import React, { Component } from 'react';
                                 <p>1 BTC = {this.state.oneyearprice.btc} €</p>
                             </div>
                             <div className="column">
-                                <p>1 ICX = {this.state.oneyearprice.icx} €</p>
+                                <p>1 ETH = {this.state.oneyearprice.eth} €</p>
                             </div>
                             <div className="column">
-                                <p>1 NANO = {valueOfNano} €</p>
+                                <p>1 DOGE = {this.state.oneyearprice.doge} €</p>
                             </div>
                         </div>
                     </div>
